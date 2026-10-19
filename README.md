@@ -2,7 +2,9 @@
 
 Live: https://mapcheck-rho.vercel.app
 
-A small browser tool that audits an action mapping before those tokens reach a game or a robot build.
+**Status: Sample audit — hardcoded example data. Edit rows by hand to explore. Real ActionMap/log import is not built yet.**
+
+A small browser tool that audits a hardcoded sample action mapping (edit rows by hand to explore) before those tokens would reach a game or a robot build.
 
 It is a local, SDK-shaped sample. It does not call the General Intuition API, it does not use an API key, and it does not include a real model, a real session, or Medal / Rocket Science data. Unmapped tokens passing through is the silent-by-default behaviour of `ActionMap.apply` in `general-intuition-sdk` 0.24.0. This page does not call that a bug. It flags the structural risk a partner would otherwise only notice downstream.
 
@@ -45,8 +47,8 @@ Edit a row and run the audit again. The cards follow the table.
 
 ## Talk track
 
-You have a public Python SDK — I read v0.24.0 last night — and its ActionMap passes unmapped tokens through unchanged, silently. I couldn't find a public way for a partner to audit that mapping before it reaches a game or robot build, so I built one.
+You have a public Python SDK — I read v0.24.0 last night — and its ActionMap passes unmapped tokens through unchanged, silently. I couldn't find a public way for a partner to audit that mapping before it reaches a game or robot build, so I built this sample.
 
 ## What a real integration still has to decide
 
-MapCheck can tell you a token has no row, that two sources collapse to one target, that a row matches nothing, and that a rare logged action is or is not in the map. It cannot tell you the target is the right control on the robot or in the game. No public evidence found of an official partner-facing auditor for this. The dict fields inside `Model.action_set` are not documented in the 0.24.0 package; this sample audits the strings `apply()` receives.
+On this sample, MapCheck can tell you a token has no row, that two sources collapse to one target, that a row matches nothing, and that a rare logged action is or is not in the map. It cannot tell you the target is the right control on the robot or in the game. No public evidence found of an official partner-facing auditor for this. The dict fields inside `Model.action_set` are not documented in the 0.24.0 package; this sample audits the strings `apply()` receives.

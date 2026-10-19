@@ -142,6 +142,7 @@ export function Auditor() {
         <p className="mt-4 max-w-[45ch] text-base leading-[1.25]">
           A preflight for the ActionMap in general-intuition-sdk 0.24.0.
         </p>
+        <p className="mt-4 max-w-[45ch] text-base leading-[1.25]">Sample audit — hardcoded example data. Edit rows by hand to explore. Real ActionMap/log import is not built yet.</p>
         <table className="gi-grid mt-6 max-w-xl">
           <tbody>
             <tr>
@@ -278,7 +279,7 @@ export function Auditor() {
           <section className="gi-card p-4">
             <div className="flex flex-wrap items-end justify-between gap-3">
               <h2 className="text-2xl leading-[1.25] font-normal">Session log.</h2>
-              <p className="font-mono text-xs text-[#888]">{totals.total} events. Synthetic.</p>
+              <p className="font-mono text-xs text-[#888]">{totals.total} events. SAMPLE — synthetic.</p>
             </div>
             <p className="mt-2 max-w-[45ch] text-sm leading-[1.25] text-[#888]">
               Timestamped counts for one made-up session. Not an API session, and not Medal or
