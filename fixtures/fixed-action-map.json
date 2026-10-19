@@ -1,0 +1,33 @@
+{
+  "sample": true,
+  "model_id": "sample-rocket-science-shaped-fixed",
+  "action_set": [
+    "accelerate",
+    "brake",
+    "steer_left",
+    "steer_right",
+    "boost",
+    "handbrake",
+    "jump",
+    "reset_camera",
+    "no_op",
+    "air_roll_left",
+    "air_roll_right",
+    "rear_view"
+  ],
+  "mapping": {
+    "accelerate": "throttle_positive",
+    "brake": "throttle_negative",
+    "steer_left": "yaw_left",
+    "steer_right": "yaw_right",
+    "boost": "boost_on",
+    "jump": "hop",
+    "air_roll_left": "roll_left",
+    "no_op": "idle",
+    "handbrake": "drift",
+    "reset_camera": "camera_reset",
+    "air_roll_right": "roll_right",
+    "rear_view": "look_back",
+    "dodge": "dodge_tap"
+  }
+}

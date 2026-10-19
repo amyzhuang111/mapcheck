@@ -9,6 +9,18 @@ export type LogEntry = {
   tMs: number
   token: string
   count: number
+  line: number | null
+}
+
+export type InputStatus = "absent" | "invalid" | "ready"
+
+export type ImportSources = {
+  map: InputStatus
+  log: InputStatus
+  actionSet: boolean
+  sample: boolean
+  mapLabel: string
+  logLabel: string
 }
 
 export type Workspace = {
@@ -16,9 +28,10 @@ export type Workspace = {
   actionSet: string[]
   mapping: MappingRow[]
   log: LogEntry[]
+  sources: ImportSources
 }
 
-export type Severity = "high" | "medium" | "low" | "clear"
+export type Severity = "high" | "medium" | "low" | "clear" | "unavailable"
 
 export type UnmappedToken = {
   token: string
@@ -46,6 +59,14 @@ export type RareToken = {
   mapped: boolean
   target: string | null
   sharedTarget: boolean
+}
+
+export type TokenCount = {
+  token: string
+  events: number
+  share: number
+  mapped: boolean | null
+  target: string | null
 }
 
 export type FindingId = "unmapped" | "collisions" | "orphans" | "rare"
@@ -79,7 +100,15 @@ export type AuditResult = {
   collisions: CollisionGroup[]
   orphans: OrphanRow[]
   rare: RareToken[]
-  demo: PassThroughDemo
+  counts: TokenCount[]
+  demo: PassThroughDemo | null
   riskLabel: string
   riskDetail: string
+}
+
+export type ParseIssue = {
+  source: "action-map" | "log"
+  line: number | null
+  message: string
+  raw: string
 }

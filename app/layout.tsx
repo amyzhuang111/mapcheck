@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "MapCheck — ActionMap auditor",
   description:
-    "Sample audit — hardcoded example data. Edit rows by hand to explore. Real ActionMap/log import is not built yet.",
+    "A local, SDK-shaped preflight for ActionMap in general-intuition-sdk 0.24.0. Structural checks only. No API key and no real model data.",
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

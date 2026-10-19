@@ -4,7 +4,7 @@ MapCheck is a Next.js 16 app (`next` 16.4.2 in `package.json`). Deploy it with t
 
 There is no GitHub-push workflow for this deploy. Do not connect a Git repository. Run the commands below from this directory when you are ready. This pass does not log in and does not deploy.
 
-No application env vars are required. The page is a local sample and does not call an API.
+No application env vars are required. The page audits an ActionMap or a log you import. It does not call an API. The synthetic sample stays unloaded until someone asks for it.
 
 `vercel.json` sets `framework` to `nextjs` and `buildCommand` to `npm run build`. `outputDirectory` is omitted on purpose. This app is not a static export (`output: "export"` is not set in `next.config.ts`). The Next.js preset publishes the server build in `.next`. Setting `outputDirectory` would fight that preset.
 

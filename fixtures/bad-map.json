@@ -1,0 +1,5 @@
+{
+  "accelerate": "throttle_positive",
+  "boost": 1,
+  "brake": "throttle_negative"
+}

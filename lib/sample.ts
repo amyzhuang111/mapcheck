@@ -58,6 +58,7 @@ function expandLog(): LogEntry[] {
         tMs,
         token: spec.token,
         count,
+        line: null,
       })
     })
   }
@@ -75,7 +76,58 @@ export function createSample(): Workspace {
     actionSet: [...ACTION_SET],
     mapping,
     log: expandLog(),
+    sources: {
+      map: "ready",
+      log: "ready",
+      actionSet: true,
+      sample: true,
+      mapLabel: "sample ActionMap",
+      logLabel: "sample log",
+    },
   }
+}
+
+export function sampleActionMapJson(): string {
+  const mapping: Record<string, string> = {}
+  for (const [source, target] of MAPPING) mapping[source] = target
+  return (
+    JSON.stringify(
+      {
+        sample: true,
+        model_id: MODEL_ID,
+        action_set: ACTION_SET,
+        mapping,
+      },
+      null,
+      2,
+    ) + "\n"
+  )
+}
+
+export function sampleLogCsv(): string {
+  const lines = ["token,count,t_ms"]
+  for (const entry of expandLog()) lines.push(`${entry.token},${entry.count},${entry.tMs}`)
+  return lines.join("\n") + "\n"
+}
+
+export function fixedActionMapJson(): string {
+  const parsed = JSON.parse(sampleActionMapJson()) as {
+    sample: boolean
+    model_id: string
+    action_set: string[]
+    mapping: Record<string, string>
+  }
+  parsed.model_id = "sample-rocket-science-shaped-fixed"
+  parsed.mapping.boost = "boost_on"
+  parsed.mapping.air_roll_left = "roll_left"
+  parsed.mapping.handbrake = "drift"
+  parsed.mapping.reset_camera = "camera_reset"
+  parsed.mapping.air_roll_right = "roll_right"
+  parsed.mapping.rear_view = "look_back"
+  parsed.mapping.dodge = "dodge_tap"
+  delete parsed.mapping.powerslide
+  delete parsed.mapping.use_item
+  return JSON.stringify(parsed, null, 2) + "\n"
 }
 
 export const DEFAULT_RARE_THRESHOLD_PCT = 5

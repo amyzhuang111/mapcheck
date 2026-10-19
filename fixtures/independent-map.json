@@ -1,0 +1,6 @@
+{
+  "accelerate": "throttle_positive",
+  "boost": "throttle_positive",
+  "brake": "throttle_negative",
+  "powerslide": "slide"
+}
